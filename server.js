@@ -15,7 +15,7 @@ app.use(express.json());
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/echtzeit-chat-app';
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .catch(err => console.error('MongoDB connection error:', err.stack));
 
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
