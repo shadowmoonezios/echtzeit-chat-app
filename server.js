@@ -12,7 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost/echtzeit-chat-app', { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/echtzeit-chat-app';
+mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => console.error('MongoDB connection error:', err));
 
