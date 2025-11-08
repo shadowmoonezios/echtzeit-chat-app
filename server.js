@@ -16,7 +16,7 @@ const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/echtzeit-chat-a
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => {
-    console.error('MongoDB connection error: Unable to connect to the database.');
+    console.error('MongoDB connection error: ', err.message);
     process.exit(1); // Exit the process if database connection fails
   });
 
